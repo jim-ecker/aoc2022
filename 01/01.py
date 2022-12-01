@@ -16,7 +16,7 @@ def getTopN(inputList, n):
 d = []
 with open("input.txt") as f:
     for group in f.read().split('\n\n'):
-     d.append(sum([int(i) for i in group.split('\n')])) # collapse each elve's snacks to one sum of calories
+     d.append(sum([int(i) for i in group.split('\n')])) # collapse each elf's snacks to one sum of calories
 
 print('part1: {}'.format(sum(getTopN(d, 1))))
 print('part2: {}'.format(sum(getTopN(d, 3))))
