@@ -13,7 +13,7 @@ def intersection_of_sets(data: list) -> set:
     return set.intersection(*sets)
 
 
-def get_common(data: list, n: int = 2, priority: list=string.ascii_letters) -> int:
+def get_common(data: list, n: int = 2, priority: list = string.ascii_letters) -> int:
     """
     calculates the priority sum of common elements between n-sized groups of elements of list
     :param data: list to calculate over
