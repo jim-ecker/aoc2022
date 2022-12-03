@@ -13,20 +13,17 @@ def intersection_of_sets(data: list) -> set:
     return set.intersection(*sets)
 
 
-def get_common(data: list, n: int = 2) -> int:
+def get_common(data: list, n: int = 2, priority: list=string.ascii_letters) -> int:
     """
     calculates the priority sum of common elements between n-sized groups of elements of list
     :param data: list to calculate over
     :param n: size of groups in which to find common elements
+    :param priority: mapping of elements to an integer representing its importance
     :return: the priority sum of the common elements
     """
-    priority = list(string.ascii_letters)
-    common = []
     answer = 0
     for item in zip_longest(*[iter(data)] * n, fillvalue=''):
-        common.append(intersection_of_sets(list(item)))
-    for item in common:
-        for letter in item:
+        for letter in intersection_of_sets(list(item)):
             answer += priority.index(letter) + 1
     return answer
 
@@ -37,7 +34,7 @@ def split_string_in_half(istring: str) -> tuple:
     :param istring: the string to split
     :return: a tuple containing each half of the original string
     """
-    return string[:len(istring) // 2], string[len(istring) // 2:]
+    return istring[:len(istring) // 2], istring[len(istring) // 2:]
 
 
 def process_for_part_1(data: list) -> list:
