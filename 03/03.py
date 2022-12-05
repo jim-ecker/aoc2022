@@ -56,6 +56,7 @@ with open("input.txt") as f:
     for group in f.read().split('\n'):
         d.append(group)
 
+print(d)
 print('part1: {}'.format(get_common(process_for_part_1(d), 2)))
 print('part2: {}'.format(get_common(d, 3)))
 
