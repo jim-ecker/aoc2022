@@ -94,4 +94,3 @@ print('part 1: {}'.format(get_answer(stacks)))
 stacks, moves = reset()
 do_work(moves, stacks, batch=True)
 print('part 2: {}'.format(get_answer(stacks)))
-
