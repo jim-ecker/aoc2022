@@ -1,4 +1,9 @@
 def parse_pairs(pairs: list) -> tuple:
+    """
+    Parses each pair from their respective strings
+    :param pairs: a list of strings representing each pair
+    :return: a tuple of lists for each respective pair
+    """
     return pairs[0].split('-'), pairs[1].split('-')
 
 
@@ -23,13 +28,13 @@ overlap = 0
 for item in d:
     pair1, pair2 = parse_pairs(item.split(','))
     pair1, pair2 = get_sets(pair1, pair2)
-    if pair1 == pair2:
+    if pair1 == pair2:  # two equal sets contain each other
         count += 1
-    elif pair1.issubset(pair2):
+    elif pair1.issubset(pair2):  # Second set contains first
         count += 1
-    elif pair2.issubset(pair1):
+    elif pair2.issubset(pair1):  # First set contains second
         count += 1
-    elif not pair1.isdisjoint(pair2):
+    elif not pair1.isdisjoint(pair2): # For part 2, if the two sets are not disjoint then an intersection exists and one set contains part of another
         overlap += 1
 print('part 1: {}'.format(count))
 print('part 1: {}'.format(count + overlap))
